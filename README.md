@@ -79,9 +79,9 @@ This project is under active development. Here's what I'm currently working on a
   - Seasonal consumption trends by medicine category
 
 **Planned next:**
-- [ ] Add a naive baseline (e.g., 3-month moving average) so the model's value-add can be honestly measured against a simple benchmark
-- [ ] Add reorder-point logic: flag facility-medicine pairs predicted to fall below `Reorder_Level`
-- [ ] Publish the Power BI dashboard (screenshots + `.pbix` file) alongside the notebook
+-  Add a naive baseline (e.g., 3-month moving average) so the model's value-add can be honestly measured against a simple benchmark
+-  Add reorder-point logic: flag facility-medicine pairs predicted to fall below `Reorder_Level`
+-  Publish the Power BI dashboard (screenshots + `.pbix` file) alongside the notebook
 
 Contributions, suggestions, and feedback are welcome — feel free to open an issue.
 
