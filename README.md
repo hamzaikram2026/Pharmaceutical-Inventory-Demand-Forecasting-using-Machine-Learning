@@ -104,6 +104,20 @@ pip install -r requirement.txt
 jupyter notebook Pharmaceutical_Inventory_Demand.ipynb
 ```
 
+
+## Other Projects
+
+A couple of other projects from my portfolio that may be relevant:
+
+- **[Automated Text Structuring Pipeline](https://github.com/hamzaikram2026/Automated_Text_Structuring_Pipeline)** — Pipeline that Transforms Unstructure raw ingredient text into clean Structured Data using Natural Language Processing.
+- **[AutoInsight](https://github.com/hamzaikram2026/AutoInsight-Automated_EDA-Predictive_Modeling_Pipeline-)** — Streamlit application for automated exploratory data analysis and predictive modeling.
+
+---
+
+## Author
+
+**Hamza Ikram** — [github.com/hamzaikram2026](https://github.com/hamzaikram2026)
+
 ## License
 
 This project is open-sourced for educational and portfolio purposes.
