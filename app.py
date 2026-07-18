@@ -70,14 +70,15 @@ h3{
 
 /* ---------- Tabs ---------- */
 
-div[data-testid="stTabs"] button{
-    padding:12px 20px!important;
+button[data-baseweb="tab"]{
+    font-size:22px !important;
+    font-weight:700 !important;
+    padding:12px 20px !important;
 }
 
-div[data-testid="stTabs"] button p,
-div[data-testid="stTabs"] button span{
-    font-size:clamp(1rem,2vw,1.35rem)!important;
-    font-weight:700!important;
+button[data-baseweb="tab"] *{
+    font-size:22px !important;
+    font-weight:700 !important;
 }
 
 
