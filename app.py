@@ -14,76 +14,152 @@ st.set_page_config(
 )
 
 st.markdown("""
+
 <style>
 
 /* ---------- Header ---------- */
 
-.main-title {
-    font-size: 3.8rem;
-    font-weight: 800;
-    margin-bottom: 0.2rem;
+.main-title{
+    font-size:clamp(2.2rem,5vw,3.8rem);
+    font-weight:800;
+    line-height:1.15;
+    margin-bottom:.3rem;
+    overflow-wrap:anywhere;
 }
 
-.subtitle {
-    font-size: 1.5rem;
-    font-weight: 600;
-    color: #BDBDBD;
-    margin-bottom: 0.35rem;
+.subtitle{
+    font-size:clamp(1rem,2vw,1.5rem);
+    font-weight:600;
+    color:#BDBDBD;
+    margin-bottom:.35rem;
 }
 
-.description {
-    font-size: 1.2rem;
-    color: #A8A8A8;
-    margin-bottom: 2rem;
+.description{
+    font-size:clamp(.95rem,1.4vw,1.2rem);
+    color:#A8A8A8;
+    line-height:1.7;
+    margin-bottom:2rem;
+    overflow-wrap:anywhere;
 }
-
 
 
 /* ---------- Markdown Headings ---------- */
 
-h1 {font-size: 3rem !important;}
-h2 {font-size: 2.2rem !important;}
-h3 {font-size: 1.7rem !important;}
+h1{
+    font-size:clamp(2rem,4vw,3rem)!important;
+}
 
+h2{
+    font-size:clamp(1.6rem,3vw,2.2rem)!important;
+}
+
+h3{
+    font-size:clamp(1.3rem,2.5vw,1.7rem)!important;
+}
 
 
 /* ---------- Buttons ---------- */
 
 .stButton button,
-.stDownloadButton button {
-    font-size: 1rem !important;
-    font-weight: 600 !important;
+.stDownloadButton button{
+    font-size:1rem!important;
+    font-weight:600!important;
+    width:100%;
 }
+
 
 /* ---------- Tabs ---------- */
 
-div[data-testid="stTabs"] button p {
-    font-size: 20px !important;
-    font-weight: 700 !important;
+div[data-testid="stTabs"] button{
+    padding:12px 20px!important;
 }
 
-div[data-testid="stTabs"] button {
-    padding: 12px 20px !important;
+div[data-testid="stTabs"] button p,
+div[data-testid="stTabs"] button span{
+    font-size:clamp(1rem,2vw,1.35rem)!important;
+    font-weight:700!important;
 }
+
 
 /* ---------- Metrics ---------- */
 
-[data-testid="stMetricValue"] {
-    font-size: 2rem !important;
+[data-testid="stMetricValue"]{
+    font-size:clamp(1.6rem,3vw,2rem)!important;
 }
 
-[data-testid="stMetricLabel"] {
-    font-size: 1rem !important;
+[data-testid="stMetricLabel"]{
+    font-size:clamp(.9rem,2vw,1rem)!important;
 }
-/* Widget labels (Dataset, Business Question, Target column, etc.) */
+
+
+/* ---------- Widget Labels ---------- */
+
 .stFileUploader label,
 .stTextArea label,
-.stSelectbox label {
-    font-size: 1.25rem !important;
-    font-weight: 700 !important;
+.stSelectbox label{
+    font-size:clamp(1rem,2vw,1.25rem)!important;
+    font-weight:700!important;
 }
 
-</style>
+
+/* ---------- Prevent text overflow ---------- */
+
+*{
+    overflow-wrap:anywhere;
+    word-break:break-word;
+}
+
+
+/* ---------- Mobile ---------- */
+
+@media (max-width:768px){
+
+    .main-title{
+        font-size:2rem;
+        line-height:1.2;
+    }
+
+    .subtitle{
+        font-size:1rem;
+    }
+
+    .description{
+        font-size:.95rem;
+    }
+
+    h1{
+        font-size:1.8rem!important;
+    }
+
+    h2{
+        font-size:1.5rem!important;
+    }
+
+    h3{
+        font-size:1.25rem!important;
+    }
+
+    div[data-testid="stTabs"] button{
+        padding:8px 12px!important;
+    }
+
+    div[data-testid="stTabs"] button p,
+    div[data-testid="stTabs"] button span{
+        font-size:.9rem!important;
+    }
+
+    [data-testid="stMetricValue"]{
+        font-size:1.5rem!important;
+    }
+
+    .stButton button,
+    .stDownloadButton button{
+        font-size:.95rem!important;
+    }
+}
+
+</style>    
+
 
 <div class="main-title">PharmaInsight : Pharmaceutical Inventory Forecasting</div>
 
