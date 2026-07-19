@@ -125,11 +125,68 @@ div[data-testid="stTabs"] button[role="tab"][aria-selected="true"]{
 html, body{
     overflow-x: hidden;
 }
+            
+.mobile-title{
+    display:none;
+}
+
+@media (max-width:768px){
+    .desktop-title{
+        display:none !important;
+    }
+    .mobile-title{
+        display:block !important;
+        font-size:1.9rem !important;
+        line-height:1.3 !important;
+        font-weight:800 !important;
+    }
+}
+            
+@media (max-width:768px){
+    div[data-testid="stTabs"] div[role="tablist"]{
+        display:flex !important;
+        flex-wrap:wrap !important;
+        width:100% !important;
+        overflow-x:visible !important;
+    }
+
+    div[data-testid="stTabs"] button[role="tab"]{
+        flex:1 1 30% !important;
+        min-width:0 !important;
+        font-size:0.68rem !important;
+        padding:6px 2px !important;
+        white-space:nowrap !important;
+        text-overflow:ellipsis !important;
+        overflow:hidden !important;
+    }
+
+    div[data-testid="stTabs"] button[role="tab"] p{
+        font-size:0.68rem !important;
+        white-space:nowrap !important;
+        overflow:hidden !important;
+        text-overflow:ellipsis !important;
+    }
+}
+
+@media (max-width:768px){
+    .st-key-metrics-row div[data-testid="stHorizontalBlock"]{
+        display:grid !important;
+        grid-template-columns:1fr 1fr !important;
+        gap:1rem 1.5rem !important;
+    }
+
+    .st-key-metrics-row div[data-testid="column"]{
+        width:100% !important;
+        flex:none !important;
+        min-width:0 !important;
+    }
+}
 
 </style>    
 
 
-<div class="main-title">PharmaInsight : Pharmaceutical Inventory Forecasting</div>
+<div class="main-title desktop-title">PharmaInsight : Pharmaceutical Inventory Forecasting</div>
+<div class="main-title mobile-title">PharmaInsight :<br>Pharmaceutical<br>Inventory Forecasting</div>
 
 <div class="subtitle">
 Developed by Hamza Ikram
@@ -149,11 +206,12 @@ medicine = pd.read_csv("data/medicines.csv")
 
 
 
-col1, col2, col3, col4 = st.columns(4)
-col1.metric("Records", len(stock))
-col2.metric("Medicines", stock["Medicine_Name"].nunique())
-col3.metric("States", stock["State"].nunique())
-col4.metric("Facilities", stock["Facility_Name"].nunique())
+with st.container(key="metrics-row"):
+    col1, col2, col3, col4 = st.columns(4)
+    col1.metric("Records", len(stock))
+    col2.metric("Medicines", stock["Medicine_Name"].nunique())
+    col3.metric("States", stock["State"].nunique())
+    col4.metric("Facilities", stock["Facility_Name"].nunique())
 
 col1, col2, col3 = st.columns([1, 1, 1])
 
