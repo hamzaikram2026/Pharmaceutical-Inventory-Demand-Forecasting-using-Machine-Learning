@@ -1,6 +1,25 @@
-# Pharmaceutical Inventory Demand Forecasting using Machine Learning
+# PharmaInsight: Pharmaceutical Inventory Demand Forecasting using Machine Learning
 
 Predicting medicine stock levels across Indian healthcare facilities using lag-based and rolling-window feature engineering with a Random Forest regressor — built to explore how historical consumption patterns can support proactive inventory planning and reduce stockout/overstock risk.
+
+## 🚀 Live Demo
+
+**The project is deployed as an interactive Streamlit web app:**
+
+🔗 **[pharmainsight.streamlit.app](https://pharmainsight.streamlit.app)**
+
+The app lets you explore the full pipeline without running any code — no setup required:
+
+| Tab | What it shows |
+|---|---|
+| **Profile** | Dataset overview (rows, columns, missing values) and a live preview of the raw stock records |
+| **EDA** | Interactive charts — top medicines, top facilities, monthly consumption trends, state-wise record distribution, closing stock distribution |
+| **Model** | Model configuration — algorithm, target variable, feature engineering steps, validation strategy |
+| **Performance** | Evaluation metrics (R², RMSE, MAE, cross-validation RMSE) |
+| **Feature Importance** | Ranked bar chart of the top 10 features driving the model's predictions |
+| **Prediction** | Sample predictions vs. actual values, prediction error distribution, and a downloadable predictions file |
+
+Built with `Streamlit` + `Plotly` on top of the original notebook's pipeline, so the analysis is explorable interactively rather than locked inside a static `.ipynb`.
 
 ## Project Overview
 
@@ -16,7 +35,7 @@ Pharmaceutical supply chains in public health systems face a constant balancing 
 
 ## Tech Stack
 
-`Python` · `Pandas` · `NumPy` · `Scikit-learn` · `Matplotlib`
+`Python` · `Pandas` · `NumPy` · `Scikit-learn` · `Matplotlib` · `Plotly` · `Streamlit`
 
 ## Methodology
 
@@ -28,6 +47,7 @@ Pharmaceutical supply chains in public health systems face a constant balancing 
 4. **Feature Selection** — Recursive Feature Elimination (RFE) with a Random Forest estimator, narrowing to the 20 most predictive features.
 5. **Modeling** — Random Forest Regressor, tuned via `GridSearchCV` (max_depth, min_samples_split) with 5-fold cross-validation.
 6. **Evaluation** — Mean Squared Error and R² on a held-out test set.
+7. **Deployment** — Wrapped the pipeline outputs (EDA charts, model results, predictions) into a multi-tab **Streamlit** app for interactive exploration, deployed on Streamlit Community Cloud.
 
 ## Visual Exploratory Data Analysis
 
@@ -42,6 +62,8 @@ Closing stock for each medicine plotted across the year — useful for spotting 
 ### Geographic Distribution
 ![State Distribution](images/state_distribution.png)
 Record distribution across the 5 states in the dataset — fairly balanced, so no single state dominates the model's training data.
+
+> All of the above (plus additional interactive charts) are also viewable live in the **EDA tab** of the [deployed app](https://pharmainsight.streamlit.app).
 
 ## Results
 
@@ -63,7 +85,7 @@ Being transparent about this because it's the most important thing I learned bui
 - **Random train/test split** was used despite this being time-series data, which can leak temporal information across the split.
 - A corrected version — predicting **next month's consumption** using only lagged/historical features, with a chronological train/test split — is planned to produce an honest, deployable forecasting model (see Roadmap).
 
-I'm keeping this section in the README deliberately: recognizing and documenting data leakage is a core data science skill, and I'd rather show the full learning process than a polished number that doesn't hold up under scrutiny.
+I'm keeping this section in the README (and in the app itself) deliberately: recognizing and documenting data leakage is a core data science skill, and I'd rather show the full learning process than a polished number that doesn't hold up under scrutiny.
 
 ## Work in Progress
 
@@ -73,6 +95,7 @@ This project is under active development. Here's what I'm currently working on a
 - Fixing the data leakage issue described above — rebuilding the model to predict **next-period demand** using only historical (lagged) features, instead of current-period stock-movement columns
 - Resolving a duplicate-key issue in `medicines.csv` (some medicine names map to multiple, inconsistent category/brand records), which currently causes row duplication when merged with the fact table
 - Switching from a random train/test split to a time-based split (`TimeSeriesSplit`), since this is time-series data
+- Investigating a cluster of predictions at `Actual_Closing_Stock = 0` visible in the app's Prediction tab, likely tied to rows where lag/rolling features couldn't be computed for a facility's earliest records
 - Building a **Power BI dashboard** covering:
   - Stockout risk by state/district/facility (closing stock vs. reorder level)
   - Expiry & wastage hotspots by medicine and facility type
@@ -81,6 +104,7 @@ This project is under active development. Here's what I'm currently working on a
 **Planned next:**
 -  Add a naive baseline (e.g., 3-month moving average) so the model's value-add can be honestly measured against a simple benchmark
 -  Add reorder-point logic: flag facility-medicine pairs predicted to fall below `Reorder_Level`
+-  Push the corrected (leakage-free) model to the live Streamlit app as an updated version
 -  Publish the Power BI dashboard (screenshots + `.pbix` file) alongside the notebook
 
 Contributions, suggestions, and feedback are welcome — feel free to open an issue.
@@ -89,6 +113,7 @@ Contributions, suggestions, and feedback are welcome — feel free to open an is
 
 ```
 ├── Pharmaceutical_Inventory_Demand.ipynb   # Main analysis & modeling notebook
+├── app.py                                  # Streamlit app source (deployed version)
 ├── medicine_stock.csv                      # Fact table: monthly stock records
 ├── medicines.csv                           # Dimension table: medicine metadata
 ├── requirement.txt                         # Python dependencies
@@ -97,6 +122,7 @@ Contributions, suggestions, and feedback are welcome — feel free to open an is
 
 ## Getting Started
 
+### Run the notebook
 ```bash
 git clone https://github.com/hamzaikram2026/Pharmaceutical-Inventory-Demand-Forecasting-using-Machine-Learning.git
 cd Pharmaceutical-Inventory-Demand-Forecasting-using-Machine-Learning
@@ -104,6 +130,16 @@ pip install -r requirement.txt
 jupyter notebook Pharmaceutical_Inventory_Demand.ipynb
 ```
 
+### Run the Streamlit app locally
+```bash
+streamlit run app.py
+```
+
+Or just use the hosted version — no install needed: **[pharmainsight.streamlit.app](https://pharmainsight.streamlit.app)**
+
+## License
+
+This project is open-sourced for educational and portfolio purposes.
 
 ## Other Projects
 
