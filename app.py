@@ -70,15 +70,19 @@ h3{
 
 /* ---------- Tabs ---------- */
 
-button[data-baseweb="tab"]{
-    font-size:22px !important;
+div[data-testid="stTabs"] button[role="tab"]{
+    font-size:clamp(1rem,2.2vw,1.4rem) !important;
     font-weight:700 !important;
     padding:12px 20px !important;
 }
 
-button[data-baseweb="tab"] *{
-    font-size:22px !important;
+div[data-testid="stTabs"] button[role="tab"] p{
+    font-size:clamp(1rem,2.2vw,1.4rem) !important;
     font-weight:700 !important;
+}
+
+div[data-testid="stTabs"] button[role="tab"][aria-selected="true"]{
+    border-bottom: 3px solid #ffffff !important;
 }
 
 
@@ -112,51 +116,14 @@ button[data-baseweb="tab"] *{
 
 
 /* ---------- Mobile ---------- */
+.block-container{
+    padding-left: 1rem !important;
+    padding-right: 1rem !important;
+    max-width: 100% !important;
+}
 
-@media (max-width:768px){
-
-    .main-title{
-        font-size:2rem;
-        line-height:1.2;
-    }
-
-    .subtitle{
-        font-size:1rem;
-    }
-
-    .description{
-        font-size:.95rem;
-    }
-
-    h1{
-        font-size:1.8rem!important;
-    }
-
-    h2{
-        font-size:1.5rem!important;
-    }
-
-    h3{
-        font-size:1.25rem!important;
-    }
-
-    div[data-testid="stTabs"] button{
-        padding:8px 12px!important;
-    }
-
-    div[data-testid="stTabs"] button p,
-    div[data-testid="stTabs"] button span{
-        font-size:.9rem!important;
-    }
-
-    [data-testid="stMetricValue"]{
-        font-size:1.5rem!important;
-    }
-
-    .stButton button,
-    .stDownloadButton button{
-        font-size:.95rem!important;
-    }
+html, body{
+    overflow-x: hidden;
 }
 
 </style>    
@@ -218,24 +185,26 @@ padding:20px;
 border-radius:10px;
 border:1px solid #3A3A3A;
 color:white;
+overflow-wrap:anywhere;
+word-break:break-word;
 ">
 
 <h3 style="color:white; margin-top:0;">Project Summary</h3>
 
-<p style="font-size:20px; line-height:1.8;">
+<p style="font-size:clamp(0.95rem,1.6vw,1.25rem); line-height:1.8;">
 Developed an end-to-end machine learning pipeline to analyze pharmaceutical inventory
 across <b>25 healthcare facilities</b> in <b>5 Indian states</b>, leveraging historical stock
 movement data to model medicine demand patterns and support data-driven inventory planning.
 </p>
 
-<p style="font-size:20px; line-height:1.8;">
+<p style="font-size:clamp(0.95rem,1.6vw,1.25rem); line-height:1.8;">
 <b>Analytics & Machine Learning Workflow</b><br>
 Data Integration • Exploratory Data Analysis • Lag & Rolling-Window Feature Engineering •
 Recursive Feature Elimination (RFE) • Random Forest Regression • GridSearchCV •
 5-Fold Cross-Validation
 </p>
 
-<p style="font-size:20px; line-height:1.8;">
+<p style="font-size:clamp(0.95rem,1.6vw,1.25rem); line-height:1.8;">
 <b>Business Objective</b><br>
 Explore how historical inventory trends can improve demand forecasting,
 reduce stockout and overstock risk, and support proactive pharmaceutical
