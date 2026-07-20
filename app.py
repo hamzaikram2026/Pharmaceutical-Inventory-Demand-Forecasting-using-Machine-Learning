@@ -20,7 +20,7 @@ st.markdown("""
 /* ---------- Header ---------- */
 
 .main-title{
-    font-size:clamp(2.2rem,5vw,3.8rem);
+    font-size:clamp(2rem,3.2vw,3rem);
     font-weight:800;
     line-height:1.15;
     margin-bottom:.3rem;
@@ -89,7 +89,7 @@ div[data-testid="stTabs"] button[role="tab"][aria-selected="true"]{
 /* ---------- Metrics ---------- */
 
 [data-testid="stMetricValue"]{
-    font-size:clamp(1.6rem,3vw,2rem)!important;
+    font-size:clamp(1.4rem,2.2vw,1.8rem)!important;
 }
 
 [data-testid="stMetricLabel"]{
