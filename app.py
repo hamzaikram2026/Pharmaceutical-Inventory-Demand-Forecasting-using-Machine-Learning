@@ -117,7 +117,7 @@ div[data-testid="stTabs"] button[role="tab"][aria-selected="true"]{
 
 /* ---------- Desktop content width cap ---------- */
 .block-container{
-    max-width:1800px !important;
+    max-width:1600px !important;
     margin-left:auto !important;
     margin-right:auto !important;
     padding-left:2rem !important;
