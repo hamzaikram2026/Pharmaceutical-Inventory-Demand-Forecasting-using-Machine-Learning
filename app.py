@@ -188,7 +188,7 @@ html, body{
 
 
 <div class="main-title desktop-title">PharmaInsight : Pharmaceutical Inventory Forecasting</div>
-<div class="main-title mobile-title">PharmaInsight :<br>Pharmaceutical<br>Inventory Forecasting</div>
+<div class="main-title mobile-title">PharmaInsight : Pharmaceutical<br>Inventory Forecasting</div>
 
 <div class="subtitle">
 Developed by Hamza Ikram
