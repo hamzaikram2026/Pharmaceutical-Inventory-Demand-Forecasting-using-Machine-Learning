@@ -2,7 +2,7 @@
 
 Predicting medicine stock levels across Indian healthcare facilities using lag-based and rolling-window feature engineering with a Random Forest regressor — built to explore how historical consumption patterns can support proactive inventory planning and reduce stockout/overstock risk.
 
-## 🚀 Live Demo
+## Live Demo
 
 **The project is deployed as an interactive Streamlit web app:**
 
