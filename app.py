@@ -115,11 +115,13 @@ div[data-testid="stTabs"] button[role="tab"][aria-selected="true"]{
 }
 
 
-/* ---------- Mobile ---------- */
+/* ---------- Desktop content width cap ---------- */
 .block-container{
-    padding-left: 1rem !important;
-    padding-right: 1rem !important;
-    max-width: 100% !important;
+    max-width:1800px !important;
+    margin-left:auto !important;
+    margin-right:auto !important;
+    padding-left:2rem !important;
+    padding-right:2rem !important;
 }
 
 html, body{
