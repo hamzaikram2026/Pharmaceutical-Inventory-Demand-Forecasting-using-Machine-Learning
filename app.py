@@ -120,8 +120,8 @@ div[data-testid="stTabs"] button[role="tab"][aria-selected="true"]{
     max-width:1600px !important;
     margin-left:auto !important;
     margin-right:auto !important;
-    padding-left:2rem !important;
-    padding-right:2rem !important;
+    padding-left:4rem !important;
+    padding-right:4rem !important;
 }
 
 html, body{
